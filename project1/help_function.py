@@ -89,13 +89,14 @@ def max_in_list(list):
 #         count=count+1
 #     return b
 
-def class_name_and_grade(a):
+def class_grade(a):
     count=0
-    b=[]
+    list_students=[]
     while(count<a):
-        b.append(int(input("enter grade of student")))
+        b=int(input("enter grade"))
+        list_students.append(b)
         count=count+1
-    return b
+    return list_students
 
 def class_grade_avg(list):
-    print("the avg is",sum(list)/len(list))
+    return (sum(list)/len(list))

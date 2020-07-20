@@ -43,6 +43,6 @@ from project1.help_function import *
 # check_how_many_in_a_list(a,b)
 # max_in_list(a)
 a = int(input("enter num of students"))
-list_student=(class_name_and_grade(a))
+list_student=(class_grade(a))
 print(list_student)
-class_grade_avg(list_student)
+print(class_grade_avg(list_student))
