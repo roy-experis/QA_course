@@ -1,3 +1,3 @@
-from random import randint
+from random import *
 
 print(randint(0,10))
