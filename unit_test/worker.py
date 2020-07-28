@@ -11,7 +11,7 @@ class Worker:
         self.last_name = lname
         self.birth_year = byear
         self.birth_month = bmonth
-        self.birth_day = bday
+        self.birth_day =  bday
         self.address = adr
         self.cntry = country
 
