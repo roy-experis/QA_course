@@ -9,6 +9,12 @@ class card:
     def __repr__(self):
         return f' value: {self.value} suit: {self.suit}'
 
+    # # def __eq__(self, other):
+    # #     if(self.value==other.value and self.suit==other.suit):
+    #         return True
+    #     else:
+    #         return False
+
     def return_biger_card(self, other_card):#returns the biger card between the 2 you send
         values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
         suits = ['♦', '♠','♥', '♣']
@@ -77,25 +83,32 @@ class player:
         self.money=money
         self.cards=[]
 
-    def send_hand(self,DeckOfCards,num_of_cards=5):#sends cards to the player
+    def send_hand(self,Deck,num_of_cards=5):#sends cards to the player
         # print("You got:")
         for i in range(num_of_cards):
-            self.cards.append(DeckOfCards.deal_one())
+            if (len(Deck.deck) > 0):
+                self.cards.append(Deck.deal_one())
+            if (len(Deck.deck)==0):
+                print("the deck is empty")
 
     def get_card(self):#removes a random card from the player
-        random.shuffle(self.cards)
-        removed_card = self.cards[len(self.cards)-1]
-        self.cards.remove(removed_card)
-        return removed_card
+        if(len(self.cards)>0):
+            random.shuffle(self.cards)
+            removed_card = self.cards[len(self.cards)-1]
+            self.cards.remove(removed_card)
+            return removed_card
+        return "the player has no more cards"
 
     def add_card(self,DeckOfCards):#gives the player the last card of the deck
         self.cards.append(DeckOfCards.deal_one())
 
     def reduceAmount(self, amount_reduced):#thakes the amount of money you wont from the player
-        self.money=self.money-amount_reduced
+        if(self.money>=amount_reduced):
+            self.money=self.money-amount_reduced
 
     def addAmount(self, amount_added):#gives the amount of money you wont from the player
-        self.money = self.money+ amount_added
+        if(amount_added>=0):
+            self.money = self.money+ amount_added
 
     def print(self):
         print( f'players name: {self.name} players amount of money: {self.money} players cards: {self.cards}')
@@ -120,4 +133,13 @@ class CardGame:#sets a card game
         self.player3.send_hand(self.deck, self.amount_of_cards_for_hich_player)
         self.player4.send_hand(self.deck, self.amount_of_cards_for_hich_player)
 
+    # def return_winner(self): #returns the player whith the most money
+    #     if(self.player1.money>self.player2.money and self.player1.money>self.player3.money and self.player1.money>self.player4.money):
+    #         return self.player1
+    #     if (self.player2.money > self.player1.money and self.player2.money > self.player3.money and self.player2.money > self.player4.money):
+    #         return self.player2
+    #     if (self.player3.money > self.player2.money and self.player3.money > self.player1.money and self.player3.money > self.player4.money):
+    #         return self.player3
+    #     if (self.player4.money > self.player2.money and self.player4.money > self.player3.money and self.player4.money > self.player1.money):
+    #         return self.player4
 

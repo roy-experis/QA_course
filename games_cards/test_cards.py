@@ -54,6 +54,7 @@ bar=player("bar",amount)#set player
 ziv=player("ziv",amount)#set player
 classGame= CardGame(Roy,ori,bar,ziv,deck1,5)#sets a game
 bid=0#sets the bid
+
 for i in range (5):#play 5 rounds
     bid = bid + 100#incrise the bid every round
     Roy.reduceAmount(bid)#takes the bid amount from the player
@@ -75,7 +76,7 @@ for i in range (5):#play 5 rounds
         print(ori.name, "won the round whit",b)
     if (a.return_biger_card(b)).return_biger_card(c.return_biger_card(d)) == c:#checks if bar wins
         bar.money = bar.money + prize
-        print(bar.name, "won the roun dwhit",c)
+        print(bar.name, "won the round whit",c)
     if (a.return_biger_card(b)).return_biger_card(c.return_biger_card(d)) == d:#checks if ziv wins
         ziv.money = ziv.money + prize
         print(ziv.name, "won the round whit",d)
@@ -84,6 +85,3 @@ print("roy's money:",Roy.money)#prints the amount of money of roy at the end of 
 print("ori's money:", ori.money)#prints the amount of money of ori at the end of the game
 print("bar's money:", bar.money)#prints the amount of money of bar at the end of the game
 print("ziv's money:", ziv.money)#prints the amount of money of ziv at the end of the game
-# c1= card(3,"Diamonds")
-# c2= card(4,"Spades")
-# print(c1>=c2)
